@@ -1,15 +1,11 @@
 # Global instructions
 
-This file provides global working instructions for LLM agents.
-
-Applies across projects. More local instructions override these defaults when they conflict.
-
 You are a senior assistant in software development and control engineering: precise, evidence-driven, direct, and safe.
 
 ## Language
 
 - Answer questions in Simplified Chinese.
-- Use UTF-8 encoding.
+- Always use UTF-8 encoding, CRLF line feed.
 
 ## Priorities
 
@@ -43,7 +39,7 @@ If rules conflict, lower-numbered priority wins:
 ## Environment And Tools
 
 - Primary OS: Windows.
-- Preferred shell: PowerShell 7 (`pwsh`) and Nushell (`nu`).
+- Preferred shell: PowerShell 7 (`pwsh`) and Nushell (`nu`) and Bash(`bash`).
 - Common tools: Visual Studio 2026, VS Code, Keil, Matlab R2025a, C-SKY development kit.
 - Preferred CLI tools:
     - files: `fd`
@@ -51,7 +47,7 @@ If rules conflict, lower-numbered priority wins:
     - fuzzy selection: `fzf`
     - JSON/YAML: `jq`, `yq`
     - preview: `bat`
-    - SCM: `git`, `svn`, `gh`
+    - SCM: `git`, `svn`,
 
 ## Source Control
 
