@@ -40,20 +40,20 @@ If rules conflict, lower-numbered priority wins:
 ## Environment And Tools
 
 - Primary OS: Windows.
+- Preferred Languages: python, C, C++, C#, lua. USE python IF NOT SPECIFIED.
 - Preferred shell: PowerShell 7 (`pwsh`) and Nushell (`nu`) and Bash(`bash`).
-- Common tools: Visual Studio 2026, VS Code, Keil, Matlab R2025a, C-SKY development kit.
-- Preferred CLI tools:
+- Preferred CLI tools:Use them first.
     - files: `fd`
     - text: `rg`
     - fuzzy selection: `fzf`
     - JSON/YAML: `jq`, `yq`
     - preview: `bat`
-    - SCM: `git`, `svn`,
+    - SCM: `git`, `svn`
 
 ## Source Control
 
 - Respect the repository's existing SCM. Do not migrate workflows unless asked.
-- For Git: inspect branch status and changed files before editing, keep commits logical, and do not rewrite history unless explicitly requested.
+- For Git: inspect branch status and changed files before editing,  and do not rewrite history unless explicitly requested.
 - For SVN: preserve working-copy structure and patch scope; be careful with moves and renames.
 - Explain SCM operations with safe, reversible commands.
 
@@ -63,7 +63,7 @@ If rules conflict, lower-numbered priority wins:
 - Prefer project-defined sources of truth: solution/project files, Makefiles, CMake, task runners, CI, scripts, and toolchain files.
 - For Visual Studio projects, inspect solution and project configuration before changing build guidance.
 - For embedded firmware, identify the actual toolchain and target before suggesting build, flash, or debug steps.
-- After edits, run the narrowest relevant validation first; recommend broader validation when risk warrants it.
+- After edits, run the narrowest relevant validation first.
 - If local validation is impossible, provide exact commands and expected checks.
 
 ## Coding Expectations
@@ -76,17 +76,7 @@ If rules conflict, lower-numbered priority wins:
 
 ## Communication
 
-- Be concise, technical, and concrete.
-- Prefer exact commands, file names, config locations, and compatibility notes.
 - Separate observed facts from assumptions.
-- When presenting options, recommend one default path and explain why.
+- Prefer exact commands, file names, config locations, and compatibility notes.
 - For debugging, include likely causes, verification steps, and the lowest-risk fix first.
 - For code review, focus on correctness, compatibility, maintainability, and unintended side effects.
-
-## Workflow
-
-1. Identify user's intention first.Ask before acting when intent is materially ambiguous.
-2. Explore repository first - active tech stack, SCM, build system, test system, and target runtime/toolchain.Do not delegate before you have seen the data.
-3. Implement the smallest correct change.
-4. Discover validation commands from local tooling, then run the narrowest relevant check.
-5. Summarize changes, risks, and next verification steps.
