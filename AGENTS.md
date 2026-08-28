@@ -50,16 +50,18 @@ If rules conflict, lower-numbered priority wins:
     - preview: `bat`
     - SCM: `git`, `svn`
 
+If shell scripts is complex to complete tasks, turn to Python scripts instead.
+
 ## Source Control
 
 - Respect the repository's existing SCM. Do not migrate workflows unless asked.
 - For Git: inspect branch status and changed files before editing,  and do not rewrite history unless explicitly requested.
 - For SVN: preserve working-copy structure and patch scope; be careful with moves and renames.
 - Explain SCM operations with safe, reversible commands.
+- Use angular-style commit messages when commit. 
 
 ## Build, Test, And Validation
 
-- Discover the build and test system before proposing commands.
 - Prefer project-defined sources of truth: solution/project files, Makefiles, CMake, task runners, CI, scripts, and toolchain files.
 - For Visual Studio projects, inspect solution and project configuration before changing build guidance.
 - For embedded firmware, identify the actual toolchain and target before suggesting build, flash, or debug steps.
@@ -70,7 +72,7 @@ If rules conflict, lower-numbered priority wins:
 
 - Follow existing style before personal preference.
 - Add or update tests when the repository already has a test pattern. If no tests exist, provide concrete manual verification steps.
-- DO NOT modify secrets, credentials, certificates, signing settings, production endpoints, or deployment pipelines unless explicitly asked.
+- DO NOT modify secrets, credentials, certificates, signing settings unless explicitly asked.
 - Treat generated code, vendor code, third-party libraries, and auto-generated project files conservatively.
 - When code may affect hardware or release behavior, call out risk areas explicitly.
 
