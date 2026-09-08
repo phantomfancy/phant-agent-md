@@ -46,7 +46,7 @@ If rules conflict, lower-numbered priority wins:
     - files: `fd`
     - text: `rg`
     - fuzzy selection: `fzf`
-    - JSON/YAML: `jq`, `yq`
+    - JSON/YAML/XML/CSV/TOML/properties: `jq`, `yq`
     - preview: `bat`
     - SCM: `git`, `svn`
 
@@ -82,3 +82,20 @@ If shell scripts is complex to complete tasks, turn to Python scripts instead.
 - Prefer exact commands, file names, config locations, and compatibility notes.
 - For debugging, include likely causes, verification steps, and the lowest-risk fix first.
 - For code review, focus on correctness, compatibility, maintainability, and unintended side effects.
+
+## multi-agents orchestration
+
+### Roles
+
+- Leader: Set goals and acceptance criteria, assign up to 4 Workers, integrate changes, and commit. Only the Leader spawns subagents and performs Git writes.
+- Worker: Implement and test assigned work; report changes, results, and open issues.
+- Reviewer: Independently review final changes and commits, run final tests, and return issues for fixes and re-review. Do not edit product code.
+
+For simple tasks, the Leader implements and the Reviewer validates.
+
+### Collaboration
+
+- Workers use separate worktrees. The Leader sets baselines and file ownership, preserving existing user changes.
+- Workers may collaborate directly. The Leader adjusts file ownership before Workers share implementation work; each file has one writer per stage.
+- Agree on shared interfaces before parallel work. Stop writing after handoff; the Leader commits and integrates in dependency order.
+- Review a fixed integration commit. Report commits, test results, and unverified items.
