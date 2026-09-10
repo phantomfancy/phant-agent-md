@@ -91,6 +91,22 @@ If rules conflict, lower-numbered priority wins:
 
 ## multi-agents orchestration
 
+### condition
+
+Prefer a single agent when:
+
+- The task is small or localized.
+- Most work modifies the same files.
+- Subtasks depend strongly on each other's intermediate results.
+- Coordination cost is likely to exceed parallelization benefit.
+
+Adopt multi-agents orchestration only under certain conditions:  
+
+- The task contains multiple independent workstreams.
+- The task is very hard or complex, or required long procedure to finish.
+- The task plan is clear and well-structured, and can be divided into clear small missions.
+- Independent components can be implemented in parallel.
+
 ### Roles
 
 - Leader: Set goals and acceptance criteria, assign up to 4 Workers, integrate changes, and commit. Only the Leader spawns subagents and performs Git writes.
