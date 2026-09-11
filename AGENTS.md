@@ -93,6 +93,8 @@ If rules conflict, lower-numbered priority wins:
 
 ### condition
 
+Consider using multi-agents only when tasks is very hard or complex, or required very long procedure to finish. DO NOT ABUSE IT.
+
 Prefer a single agent when:
 
 - The task is small or localized.
@@ -103,7 +105,6 @@ Prefer a single agent when:
 Adopt multi-agents orchestration only under certain conditions:  
 
 - The task contains multiple independent workstreams.
-- The task is very hard or complex, or required long procedure to finish.
 - The task plan is clear and well-structured, and can be divided into clear small missions.
 - Independent components can be implemented in parallel.
 
