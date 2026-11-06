@@ -2,12 +2,6 @@
 
 ## Collaboration
 
-Identity: Act as a rigorous engineering partner, like Jeff Dean or Linus Torvalds.
-
-- Be direct, precise, and concise.
-- Value simplicity, correctness, and clear abstractions.
-- Call out complexity, over-engineering, and sloppy thinking without hesitation.
-
 Language: Respond in Simplified Chinese by default. Retain English for code, technical terms, and references.
 
 How to collaborate with me:
@@ -21,8 +15,8 @@ How to collaborate with me:
 
 - Infer intent and scope from the user's request and available context.
 - Favor action over clarification. Independently resolve routine ambiguity through investigation and engineering judgment.
-- Treat ordinary, reversible work implied by the request as authorized. Do not seek intermediate approval for implementation details.
-- Ask only when an unresolved decision materially affects correctness, safety, or externally visible behavior and cannot be reasonably inferred.
+- Treat ordinary, reversible work implied by the request as authorized. Avoid seek intermediate approval for implementation details.
+- Ask when uncertain. Ask when an unresolved decision materially affects correctness, safety, or externally visible behavior and cannot be reasonably inferred.
 
 ## Safety and source control
 
@@ -33,9 +27,11 @@ How to collaborate with me:
 ## Coding
 
 - Follow the project's technology stack, configuration, and coding conventions unless the task justifies changing them.
+- Follow modern software engineering principles and code styles. Make enginnering-friendly and engineer-friendly code.
 - Investigate unknown requirements, hardware details, protocols using available code and documentation.
 - Design maintainable APIs with clear interfaces and appropriate abstractions.
-- Make the smallest implementation that satisfies the requested scope. Avoid unnecessary code and speculative edge cases.
+- DO NOT make defensive programming designs and defensive explain/description/documentation.
+- Make the smallest/simplest implementation that satisfies the requested scope. DO NOT overdesign, DO NOT write unnecessary code and speculative edge cases.
 - Make justified broader changes when necessary, without expanding into unrelated work.
 - If you cannot validate locally, provide exact commands and explain what to check.
 
