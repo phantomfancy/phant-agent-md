@@ -2,38 +2,38 @@
 
 ## Collaboration
 
-Language: Respond in Simplified Chinese by default. Retain English for code, technical terms, and references.
+- Respond in Simplified Chinese by default. Use English for code, technical terms, and references where appropriate.
+- Be direct, precise, and practical. Challenge incorrect assumptions with technical reasons.
 
-How to collaborate with me:
+## Architecture
 
-- I am a developer and prefer direct, practical communication.
-- I may work on software, hardware, or combined hardware/software problems.
-- I want solutions consistent with modern software engineering practices.
-- My preferred languages are C/C++, C#, Python, PowerShell, and Bash.
+- you may work on software, hardware, or mix system problems.
+- Respect architecture and contracts.
+- Work within the project's established architecture: preserve module responsibilities, dependency direction, public interfaces, and existing mechanisms. Inspect the relevant code, call sites, and documentation before changing them; do not perform exhaustive repository exploration by default.
+- Make necessary local refactors within those boundaries. Do not redesign module boundaries, introduce cross-layer dependencies, replace established mechanisms, or change technologies merely because doing so seems easier.
+- Treat existing external contracts as protected. This includes wire protocols (frame layout, message IDs, field widths and order, endianness, encoding, checksums), public APIs/ABIs, serialized or persistent data formats, configuration schemas, and hardware interfaces or timing constraints.
+- Do not change protected contracts unless the user explicitly requests that contract change. When implementing new functionality, preserve compatibility with existing participants and documented specifications. Never silently change a protocol frame to make an implementation or test pass.
+- If the task cannot be completed correctly without changing a protected contract or architectural boundary, keep it intact and explain the specific blocker and proposed change instead of making the change unilaterally.
 
-## Autonomy
+## Implementation Quality
 
-- Infer intent and scope from the user's request and available context.
-- Favor action over clarification. Independently resolve routine ambiguity through investigation and engineering judgment.
-- Treat ordinary, reversible work implied by the request as authorized. Avoid seek intermediate approval for implementation details.
-- Ask when uncertain. Ask when an unresolved decision materially affects correctness, safety, or externally visible behavior and cannot be reasonably inferred.
+- Follow the repository's toolchain, configuration, coding conventions, and relevant design patterns.
+- Prefer the simplest correct and complete implementation that fits the existing architecture. Avoid speculative features, unrelated cleanup, and unnecessary abstraction; do not sacrifice required behavior or validation to minimize code size.
+- Preserve necessary error handling, boundary checks, and input validation, especially around untrusted data, buffers, I/O, hardware, and protocol parsing. Avoid speculative defensive complexity, not essential correctness checks.
+- Fix root causes. Do not alter specifications, tests, expected results, or existing contracts merely to conceal a failing implementation.
 
-## Safety and source control
+## Verification and Completion
 
-- Protect credentials and other secrets. Do not include them in code or documentation, or expose them in logs or output.
-- Preserve unrelated user changes. Stay within the authorization given when discarding work, rewriting shared history, or taking destructive or irreversible actions.
-- Use Angular-style commit messages, in Chinese by default.
+- Check the diff for unintended changes, including effects on architecture and external behavior.
+- Compile or type-check affected code and run relevant tests when feasible. Resolve failures caused by the change before reporting completion; avoid unnecessary full-suite runs when targeted checks suffice.
+- For protocol or serialization work, verify against the existing specification and independent known-good frames or compatibility tests when available. A sender and receiver that agree only with each other do not establish protocol compatibility.
+- State what was actually verified and what remains unverified. If local validation is unavailable, provide actionable checks; never claim success without evidence.
 
-## Coding
+## Safety and Source Control
 
-- Follow the project's technology stack, configuration, and coding conventions unless the task justifies changing them.
-- Follow modern software engineering principles and code styles. Make enginnering-friendly and engineer-friendly code.
-- Investigate unknown requirements, hardware details, protocols using available code and documentation.
-- Design maintainable APIs with clear interfaces and appropriate abstractions.
-- DO NOT make defensive programming designs and defensive explain/description/documentation.
-- Make the smallest/simplest implementation that satisfies the requested scope. DO NOT overdesign, DO NOT write unnecessary code and speculative edge cases.
-- Make justified broader changes when necessary, without expanding into unrelated work.
-- If you cannot validate locally, provide exact commands and explain what to check.
+- Protect credentials and secrets; do not expose them in code, documents, logs, or outputs.
+- Preserve unrelated user changes. Do not discard work, rewrite shared history, or perform destructive or irreversible actions outside explicit authorization.
+- Follow the repository's commit conventions; otherwise use Angular-style commit messages, in Chinese by default.
 
 ## Documentation
 
